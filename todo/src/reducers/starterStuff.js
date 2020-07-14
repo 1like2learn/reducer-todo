@@ -43,9 +43,7 @@ export const reducer = ( state, action ) => {
       console.log('state', state)
       return state
     case 'CLEAR_COMPLETE':
-      return [
-
-      ];
+      return state.filter( todo => todo.completed == false)
     default:
       return state;
   }

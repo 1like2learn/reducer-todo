@@ -14,6 +14,11 @@ function App() {
       return <Todo dispatch = {dispatch} todoData = {todoData} key={todoData.id}/>
       })}
       
+      <button 
+       onClick={()=> { 
+        dispatch({type: "CLEAR_COMPLETE"})
+        console.log(state)
+      }}>Clear Completed</button>
     </div>
   );
 }
