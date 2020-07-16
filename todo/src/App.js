@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import './App.css';
 import { initialState, reducer } from "./reducers/starterStuff";
 import Todo from './components/todo'
@@ -9,13 +9,13 @@ function App() {
 
   return (
     <div className="App">
-      <NewTodoForm dispatch={dispatch}/>
+      <NewTodoForm dispatch = {dispatch}/>
       {state.map( todoData => {
-      return <Todo dispatch = {dispatch} todoData = {todoData} key={todoData.id}/>
+      return <Todo dispatch = {dispatch} todoData = {todoData} key = {todoData.id}/>
       })}
       
       <button 
-       onClick={()=> { 
+       onClick = {()=> { 
         dispatch({type: "CLEAR_COMPLETE"})
         console.log(state)
       }}>Clear Completed</button>

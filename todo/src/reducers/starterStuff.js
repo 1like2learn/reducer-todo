@@ -2,27 +2,27 @@ export const initialState = [
   {
     item: 'Learn about reducers',
     completed: false,
-    id: 3892987589
+    id: 0
   },
   {
     item: 'Invent time travel',
     completed: false,
-    id: 3892982589
+    id: 1
   },
   {
     item: 'Discover alien life',
     completed: false,
-    id: 3832987589
+    id: 2
   },
   {
     item: 'Meditate on the lily',
     completed: false,
-    id: 3892187589
+    id: 3
   },
   {
-    item: 'Win existence',
+    item: 'Win Stuff',
     completed: false,
-    id: 3792987589
+    id: 4
   }
 ];
 
@@ -37,13 +37,14 @@ export const reducer = ( state, action ) => {
           id: new Date()
         }
       ];
-    case 'TOGGLE_COMPLETE':
-      const toggledTodo = state.findIndex((state) => state.id == action.payload);
-      state[toggledTodo].completed = !state[toggledTodo].completed;
-      console.log('state', state)
-      return state
+      case 'TOGGLE_COMPLETE':
+      const toggledTodo = state.findIndex((state) => state.id === action.payload);
+      const newState = Array.from(state)
+      newState[toggledTodo].completed = !state[toggledTodo].completed;
+      console.log('newState', newState);
+      return newState
     case 'CLEAR_COMPLETE':
-      return state.filter( todo => todo.completed == false)
+      return state.filter( todo => !todo.completed)
     default:
       return state;
   }
